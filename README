@@ -2,18 +2,13 @@ To grab the files use
 
    git clone git@github.com:psaha/ifm
 
-Then you can go into the directory foo (or whatever you decided to
-call it) and type
-
-   make all
-
-to generate the pdf file.
+Files will got into the ifm/ directory.
 
 You can update from the server at any time by typing
 
        git pull origin master
 
-inside the foo directory.
+inside the ifm directory.
 
 To edit collaboratively, you'll need to do a few more things.
 
