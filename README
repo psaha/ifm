@@ -1,0 +1,58 @@
+To grab the files use
+
+   git clone git@github.com:psaha/ifm
+
+Then you can go into the directory foo (or whatever you decided to
+call it) and type
+
+   make all
+
+to generate the pdf file.
+
+You can update from the server at any time by typing
+
+       git pull origin master
+
+inside the foo directory.
+
+To edit collaboratively, you'll need to do a few more things.
+
+1. Create yourself an account on github (free) and tell Irshad your
+   username, so he can add you as a collaborator.
+
+2. Configure git on your machine, adapting the following
+
+       git config --global user.name "Alan M Turing"
+       git config --global user.email amt@universal.machine
+
+   This is not essential, but good practice.  It's fine to put your
+   real name and email address here -- no spam results.
+
+   This step needs to be done once per person per machine.
+
+3. Set ssh keys so you can communicate securely with the server.
+   See https://help.github.com/articles/generating-ssh-keys
+
+   This step also needs to be done once per person per machine.
+
+4. When you add a new file:
+
+       git add myfile
+
+5. When you want to send your current version to the server:
+
+       git commit -am "short message"
+
+       git push origin master
+
+6. A useful command is
+
+       git status
+
+7. You can see stats and stuff here:
+   https://github.com/psaha/ifm
+
+8. Absolutely everything about git:
+
+   http://git-scm.com/book/
+

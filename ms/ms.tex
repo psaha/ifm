@@ -1,0 +1,274 @@
+\documentclass[12pt,aps,prb,preprint]{revtex4}
+\usepackage{pgf}
+
+\def\ket#1{|#1\rangle}
+\def\X{{\bf X}}
+
+\begin{document}
+
+\title{Quantum interaction-free measurement and a classical analog}
+
+\author{Prasenjit Saha}
+\email{psaha@physik.uzh.ch}
+\affiliation{Institute for Theoretical Physics, University of Zurich,
+  Switzerland}
+\author{Nick Kaiser}
+\email{kaiser@hawaii.edu}
+\affiliation{Institute for Astronomy, University of Hawaii at Manoa,
+Honolulu, HI 96822}
+
+\date{\today}
+
+\begin{abstract}
+Interaction-free measurement refers to quantum phenomena such as the
+presence of a photon absorber being inferred without it absorbing any
+photons.  We review the physics and its realization in interferometric
+experiments.  We then consider a simple classical system: two coupled
+oscillators, one of which is damped.  The energy dissipation can be
+made arbitrarily small by making the damping large enough.  The
+phenomenon can be considered analogous to interaction-free
+measurement.
+\end{abstract}
+
+\maketitle
+
+\section{Interaction-free measurement}
+
+Many quantum paradoxes have been explored theoretically and
+experimentally in recent years.  Most involve entanglement of two
+qubits, and several examples are in Mermin's
+book\cite{2007qucosc.book}.  Entanglement has no classical analog.
+
+There are also counter-intuitive quantum phenonema not involving
+entanglement.  The best known of these is interaction-free
+measurement. Following its initial
+suggestion\cite{1993FoPh...23..987E} and refinement and first
+experimentals\cite{PhysRevLett.74.4763} it has been the subject of
+many demonstrations\cite{voorthuysen:1504,2006JPhB...39.3177N} and
+reviews.\cite{deweerd:272} The basic idea is as follows
+\begin{itemize}
+\item Start with a state $\ket0$.
+\item Repeat the following $N$ times.
+\begin{itemize}
+\item Rotate the state away from $\ket0$ towards $\ket1$ by $\pi/(2N)$.
+\item If there is an absorber, measure the state, otherwise do
+  nothing. If the state is measured and is $\ket1$ abort the
+  experiment.
+\end{itemize}
+\item Measure the state (if the experiment has not been aborted).  If
+  the state is $\ket0$ we infer an absorber. If $\ket1$ there is is no
+  absorber.
+\end{itemize}
+If $N$ is very large, the chance of an abort becomes arbitrarily
+small.  An example of the quantum Zeno effect.
+
+An older usage of similar
+terminalogy\cite{springerlink:10.1007/BF01327019,dicke:925} refers to
+a situation where a non-detection enables an inference.
+
+\section{Interferometric picture}
+
+Most discussion in the literature is in terms of a Mach-Zehnder
+interferometer.  With the help of Figure~{\ref{fig:mz}} we can relate
+this to qubit notation.
+\begin{equation}
+\ket0 \equiv \left( \begin{array}{c} 1 \\ 0 \end{array} \right)  \qquad
+\ket1 \equiv \left( \begin{array}{c} 0 \\ 1 \end{array} \right)  \qquad
+\X \equiv \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)
+\end{equation}
+A mirror acts as a swap operator $i\X$ and a beam-splitter acts as
+\begin{equation}
+e^{i\alpha\X} \equiv \cos\alpha + i\sin\alpha\,\X
+\end{equation}
+Then $\sin^2\frac12\alpha$ is the reflectivity.
+
+The whole interferometer applies the operation
+\begin{equation}
+e^{i\alpha\X} i\X e^{i\alpha\X} = -\sin2\alpha + i\cos2\alpha X
+\end{equation}
+which is a rotation in qubit space.
+
+If we write
+\begin{equation}
+\alpha = \frac\pi2 - \epsilon
+\end{equation}
+then we have
+\begin{equation}
+-\sin2\epsilon + i\cos2\epsilon X
+\end{equation}
+
+
+The operation can be concatenated, say $N$ times.  Now let us select
+\begin{equation}
+\alpha = \frac\pi2 \left(1-\frac1N\right)
+\end{equation}
+If now we start with $\ket0$ and go through the interferometer $N$
+times, we are certain to get $\ket0$.
+
+Now put an absorber in one of the arms, as in Figure~\ref{fig:absorb}.
+Then, after going through the interferometer $N$ times, the
+probability of getting $\ket1$ will be
+\begin{equation}
+\sin^{4N}\alpha = \cos^{4N} \left(\frac\pi{2N}\right)
+\end{equation}
+which approaches unity for large $N$.
+
+\section{Coupled oscillators}
+
+Consider two coupled oscillators, one of them damped.
+\begin{equation}
+\begin{array}{l}
+\ddot x + x + \kappa y = 0 \\
+\ddot y + y + \kappa x + \gamma y = 0
+\end{array}
+\end{equation}
+If $\gamma=0$ has solutions of the form
+\begin{equation}
+\begin{array}{l}
+x = \cos(\sqrt{1+\kappa}\,t) + \cos(\sqrt{1-\kappa}\,t)  \\
+y = \cos(\sqrt{1+\kappa}\,t) - \cos(\sqrt{1-\kappa}\,t)
+\end{array}
+\end{equation}
+and the amplitude sloshes from one to the other.
+
+With damping, easiest to solve using Laplace transform. For the
+initial conditions $x(0)=1$ and $\dot x(0) = y(0) = \dot y(0) = 0$ we
+have
+\begin{equation}
+\begin{array}{l}
+s^2 X - s + X + \kappa Y = 0 \\
+s^2 Y + Y + \kappa X + \gamma s Y = 0
+\end{array}
+\end{equation}
+For strong damping, we have to $O(1/\gamma)$
+\begin{equation}
+\begin{array}{l}
+\displaystyle
+X = \frac s{s^2+1} + \frac{\kappa^2}\gamma \frac1{(s^2+1)^2} \\
+\displaystyle
+Y = -\frac\kappa\gamma \frac1{s^2+1}
+\end{array}
+\end{equation}
+Solution to $O(1/\gamma)$
+\begin{equation}
+\begin{array}{l}
+\displaystyle
+x = \cos t + \frac{\kappa^2}{2\gamma} (\sin t - t\cos t) \\
+\displaystyle
+y = -\frac\kappa\gamma \sin t
+\end{array}
+\end{equation}
+Amplitude damping rate $\propto\kappa^2/\gamma$.
+
+For mechanical oscillators, it may be counter-intuitive that more
+damping means less energy dissipation.  In the electrical case (an LC
+circuit coupled to an RLC circuit) it is obvious that increasing
+resistance reduces dissipation.
+
+\bibliography{heap.bib}
+
+\newpage
+
+\def\zero{{\bf 0}}
+\def\vmargin{\hrule height 1cm width 0pt}
+
+\def\pgfbeamsplitter(#1,#2){\pgfputat{\pgfxy(#1,#2)}
+                            {\pgfbox[center,center]
+                             {$e^{i\alpha\X}$}
+                            \pgfxyline(-.8,0)(0,.8)
+                            \pgfxyline(0,.8)(.8,0)
+                            \pgfxyline(.8,0)(0,-.8)
+                            \pgfxyline(0,-.8)(-.8,0)}}
+
+\def\pgfmirror(#1,#2){\pgfputat{\pgfxy(#1,#2)}
+                      {\pgfbox[center,center]{$\X$}
+                      \pgfxyline(-.4,-.4)(.4,-.4)
+                      \pgfxyline(.4,-.4)(.4,.4)
+                      \pgfxyline(.4,.4)(-.4,.4)
+                      \pgfxyline(-.4,.4)(-.4,-.4)}}
+
+\def\pgfabsorber(#1,#2){\pgfputat{\pgfxy(#1,#2)}
+                      {\pgfbox[center,center]{$\zero$}
+                      \pgfxyline(-.4,-.4)(.4,-.4)
+                      \pgfxyline(.4,-.4)(.4,.4)
+                      \pgfxyline(.4,.4)(-.4,.4)
+                      \pgfxyline(-.4,.4)(-.4,-.4)}}
+
+
+\begin{figure}
+\begin{center}
+\vmargin
+\begin{pgfpicture}
+\pgfbeamsplitter(0,0)
+\pgfmirror(2,2)
+\pgfmirror(2,-2)
+\pgfbeamsplitter(4,0)
+\pgfsetendarrow{\pgfarrowsingle}
+\pgfxyline(-1.5,-1.5)(-.5,-.5)
+\pgfxyline(.5,.5)(1.5,1.5)
+\pgfxyline(.5,-.5)(1.5,-1.5)
+\pgfxyline(2.5,1.5)(3.5,.5)
+\pgfxyline(2.5,-1.5)(3.5,-.5)
+\pgfxyline(4.5,.5)(5.5,1.5)
+\pgfxyline(4.5,-.5)(5.5,-1.5)
+\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$|0\rangle$}}
+\pgfputat{\pgfxy(5.7,1.7)}{\pgfbox[left,center]{$i\sin2\alpha\;|0\rangle$}}
+\pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]{$\cos2\alpha\;|1\rangle$}}
+\end{pgfpicture}
+\vmargin\vmargin\vmargin
+\begin{pgfpicture}
+\pgfbeamsplitter(0,0)
+\pgfmirror(2,2)
+\pgfmirror(2,-2)
+\pgfbeamsplitter(4,0)
+\pgfsetendarrow{\pgfarrowsingle}
+\pgfxyline(-1.5,1.5)(-.5,.5)
+\pgfxyline(.5,.5)(1.5,1.5)
+\pgfxyline(.5,-.5)(1.5,-1.5)
+\pgfxyline(2.5,1.5)(3.5,.5)
+\pgfxyline(2.5,-1.5)(3.5,-.5)
+\pgfxyline(4.5,.5)(5.5,1.5)
+\pgfxyline(4.5,-.5)(5.5,-1.5)
+\pgfputat{\pgfxy(-1.7,1.7)}{\pgfbox[right,center]{$\ket1$}}
+\pgfputat{\pgfxy(5.7,1.7)}{\pgfbox[left,center]{$\cos2\alpha\;\ket0$}}
+\pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]{$i\sin2\alpha\;\ket1$}}
+\end{pgfpicture}
+\end{center}
+\caption{\label{fig:mz} Schematic representation of a Mach-Zehnder
+  interferometer, with the results of two possible inputs.  Arrows
+  corresponds to light paths.  We express a photon moving towards
+  upper right as $\ket0$ and a photon moving towards lower right as
+  $\ket1$.  A mirror acts as a swap operator $\X$.  A beam splitter is
+  expressed by the operator $e^{i\alpha\X}$.  If $\alpha=0$ the
+  beam-splitter is fully transmissive, while $\alpha=\frac\pi2$ means
+  fully reflective.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\vmargin
+\begin{pgfpicture}
+\pgfbeamsplitter(0,0)
+\pgfabsorber(2,2)
+\pgfmirror(2,-2)
+\pgfbeamsplitter(4,0)
+\pgfsetendarrow{\pgfarrowsingle}
+\pgfxyline(-1.5,-1.5)(-.5,-.5)
+\pgfxyline(.5,.5)(1.5,1.5)
+\pgfxyline(.5,-.5)(1.5,-1.5)
+\pgfxyline(2.5,-1.5)(3.5,-.5)
+\pgfxyline(4.5,.5)(5.5,1.5)
+\pgfxyline(4.5,-.5)(5.5,-1.5)
+\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}}
+\pgfputat{\pgfxy(5.7,1.7)}
+         {\pgfbox[left,center]{$\frac i2\sin2\alpha\;\ket0$}}
+\pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]{$-\sin^2\alpha\;\ket1$}}
+\end{pgfpicture}
+\vmargin
+\end{center}
+\caption{\label{fig:absorb} Schematic represenation of a Mach-Zehnder
+  interferometer with an absorber in one arm.}
+\end{figure}
+
+\end{document}
+
