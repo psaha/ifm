@@ -93,40 +93,39 @@ this to qubit notation.
 \end{equation}
 A mirror acts as a swap operator $i\X$ and a beam-splitter acts as
 \begin{equation}
-e^{i\alpha\X} \equiv \cos\alpha + i\sin\alpha\,\X
+\exp\left[i\left({\textstyle\frac\pi2-\epsilon}\right)\right] \X \equiv
+\sin\epsilon + i\cos\epsilon\,\X
 \end{equation}
-Then $\sin^2\frac12\alpha$ is the reflectivity.
+Then $\cos^2\epsilon$ is the reflectivity.
 
 The whole interferometer applies the operation
 \begin{equation}
-e^{i\alpha\X} i\X e^{i\alpha\X} = -\sin2\alpha + i\cos2\alpha X
+     (\sin\epsilon + i\cos\epsilon\,\X)
+     \; i\X \;
+     (\sin\epsilon + i\cos\epsilon\,\X)
 \end{equation}
-which is a rotation in qubit space.
-
-If we write
+which simplifies to
 \begin{equation}
-\alpha = \frac\pi2 - \epsilon
+     -(\sin2\epsilon + i\cos2\epsilon\,\X)
 \end{equation}
-then we have
+More arms
 \begin{equation}
--\sin2\epsilon + i\cos2\epsilon X
+     \left[ (\sin\epsilon + i\cos\epsilon\,\X) \; i\X \right]^N \;
+     (\sin\epsilon + i\cos\epsilon\,\X)
+\end{equation}
+which simplifies to
+\begin{equation}
+     (-1)^{N-1} (\sin N\epsilon + i\cos N\epsilon\,\X)
 \end{equation}
 
-
-The operation can be concatenated, say $N$ times.  Now let us select
+Now put an absorber in one of the arms
 \begin{equation}
-\alpha = \frac\pi2 \left(1-\frac1N\right)
+\left( \begin{array}{cc} 0 & i\sin\epsilon \\
+                         0 & -\cos\epsilon \end{array} \right)^{N-1}
+\left( \begin{array}{cc} \sin\epsilon & i\cos\epsilon \\
+                        i\cos\epsilon & \sin\epsilon \end{array} \right)
 \end{equation}
-If now we start with $\ket0$ and go through the interferometer $N$
-times, we are certain to get $\ket0$.
 
-Now put an absorber in one of the arms, as in Figure~\ref{fig:absorb}.
-Then, after going through the interferometer $N$ times, the
-probability of getting $\ket1$ will be
-\begin{equation}
-\sin^{4N}\alpha = \cos^{4N} \left(\frac\pi{2N}\right)
-\end{equation}
-which approaches unity for large $N$.
 
 \section{Coupled oscillators}
 
