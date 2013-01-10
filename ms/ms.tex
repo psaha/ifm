@@ -24,7 +24,7 @@ Interaction-free measurement refers to quantum phenomena such as the
 presence of a photon absorber being inferred without it absorbing any
 photons.  We review the physics and its realization in interferometric
 experiments.  We then consider a simple classical system: two coupled
-oscillators, one of which is damped.  The energy dissipation can be
+oscillators, one of which is damped; the energy dissipation can be
 made arbitrarily small by making the damping large enough.  The
 phenomenon can be considered analogous to interaction-free
 measurement.
@@ -35,36 +35,85 @@ measurement.
 \section{Interaction-free measurement}
 
 Many quantum paradoxes have been explored theoretically and
-experimentally in recent years.  Most involve entanglement of two
-qubits, and several examples are in Mermin's
-book\cite{2007qucosc.book}.  Entanglement has no classical analog.
+experimentally in recent years.  Most involve entangled states: the
+famous EPR paradox is an old example, and quantum computing is a more
+recent development\cite{2007qucosc.book}.  Entanglement is considered
+an intrinsically quantum phenonemn classical analog.
 
 There are also counter-intuitive quantum phenonema not involving
-entanglement.  The best known of these is interaction-free
-measurement. Following its initial
-suggestion\cite{1993FoPh...23..987E} and refinement and first
-experimentals\cite{PhysRevLett.74.4763} it has been the subject of
-many demonstrations\cite{voorthuysen:1504,2006JPhB...39.3177N} and
-reviews.\cite{deweerd:272} The basic idea is as follows
+entanglement.  Imagine a photon, initially in a ``vertical'' polarized
+state.  It is sent through a Faraday rotator, and then through a
+vertically polarizing sheet.  The former rotates the polarization
+plane towards ``horizontal'' by small angle, say $\pi/(2N)$, where $N$
+is large.  The latter effectively measures the polarization state in
+the vertical/horizontal basis; if the result comes out horizontal, the
+photon is absorbed, otherwise it goes through in a vertical
+eigenstate.  Since $N$ is large, the chances of being absorbed are
+small.  Most likely, the photon will get slightly rotated and then
+reset to vertical.  If the photon is re-routed back to the apparatus
+$N$ times, it will still most likely emerge vertically polarized.  The
+rotator and the polarizer appear to cancel each other out.  The
+general phenomenon is known as the quantum Zeno
+effect,\cite{PhysRevA.41.2295} but it can also be described in
+everyday language, in terms of waking and sleeping
+states.\cite{orzel2009teach}
+
+What happens if we now remove the polarizer?  Clearly, the $N$ Faraday
+rotations will take the photon to a horizontal state.  Thus, the net
+effect of the polarizer is (most likely) to rotate a photon from
+horizontal to vertical.  Recall that the polarizer is really just an
+absorber of horizontal photons.  Yet it can, within a clever setup, be
+made to rotate photons instead of absorbing them.  This is the essence
+of interaction-free measurement.  Since the initial suggestion
+(essentially the $N=1$ case)\cite{1993FoPh...23..987E} and
+generalization to the now-standard form, together with the first
+experiments\cite{PhysRevLett.74.4763} interaction-free measurement has
+been the subject of many
+demonstrations\cite{voorthuysen:1504,2006JPhB...39.3177N} and
+reviews,\cite{deweerd:272} and applications aiming towards medical
+imaging are starting to appear\cite{PhysRevA.80.040902}.  (An older
+usage of similar
+terminalogy\cite{springerlink:10.1007/BF01327019,dicke:925} refers to
+a situation where a non-detection enables an inference.)
+
+
+It can be readily understood through a thought experiment, as follows.
+Consider a single photon, which can be in an arbitrary superposition
+of two states, say $\ket0$ and $\ket1$.  We are also given a glass
+sheet, which can be one of two kinds: clear or dark.  A clear glass
+let all photons through, whereas the dark variety lets only $\ket0$
+photons through, and absorbs $\ket1$ photons.  We wish to test what
+kind of glass we have been given, and do the following experiment.
 \begin{itemize}
-\item Start with a state $\ket0$.
+\item Start with the photon in state $\ket0$.
 \item Repeat the following $N$ times.
 \begin{itemize}
-\item Rotate the state away from $\ket0$ towards $\ket1$ by $\pi/(2N)$.
-\item If there is an absorber, measure the state, otherwise do
-  nothing. If the state is measured and is $\ket1$ abort the
-  experiment.
+\item Rotate the state of the photon away from $\ket0$ towards $\ket1$
+  by one part in $N$.
+\item Send the photon through the glass.  If the glass is clear,
+  nothing happens.  If the glass is dark, it measures the state
+  of the photon as either $\ket0$ or $\ket1$, and
+\begin{itemize}
+\item {\em either\/} the photon comes through, in eigenstate $\ket0$,
+\item {\em or\/} the photon is absorbed, and the experiment aborts.
 \end{itemize}
-\item Measure the state (if the experiment has not been aborted).  If
-  the state is $\ket0$ we infer an absorber. If $\ket1$ there is is no
-  absorber.
 \end{itemize}
-If $N$ is very large, the chance of an abort becomes arbitrarily
-small.  An example of the quantum Zeno effect.
+\item If the photon has not been absorbed, measure its state.
+\end{itemize}
+\noindent If the final measurement results in $\ket1$.  If the glass
+was dark, the state must be $\ket0$.  If $N=1$, the glass receives a
+photon in the state $\frac1{sqrt2}\left(\ket0+\ket1\right)$.  A dark
+glass then has a 50\% probability of absorbing the photon.  In this
+case, we have inferred the presence of a photon absorber without it
+having absorbed any photons.  
 
-An older usage of similar
-terminalogy\cite{springerlink:10.1007/BF01327019,dicke:925} refers to
-a situation where a non-detection enables an inference.
+With no absorber, the state oscillates between $\ket0$ and $\ket1$,
+whereas with absorption of $\ket1$ the state stays in $\ket0$.
+
+In this paper, we relate the above simple picture on the one hand to
+the standard description of interaction-free measurement in terms of
+an interferometric setup, and on the other hand to a classical system
+of coupled oscillators.
 
 \section{Interferometric picture}
 

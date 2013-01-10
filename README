@@ -6,14 +6,14 @@ Files will got into the ifm/ directory.
 
 You can update from the server at any time by typing
 
-       git pull origin master
+       git pull
 
 inside the ifm directory.
 
 To edit collaboratively, you'll need to do a few more things.
 
-1. Create yourself an account on github (free) and tell Irshad your
-   username, so he can add you as a collaborator.
+1. Create yourself an account on github (free) and tell me your
+   username, so I can add you as a collaborator.
 
 2. Configure git on your machine, adapting the following
 
@@ -30,14 +30,13 @@ To edit collaboratively, you'll need to do a few more things.
 
    This step also needs to be done once per person per machine.
 
-4. When you add a new file:
+4. When you add a new file that you wish to be tracked:
 
        git add myfile
 
 5. When you want to send your current version to the server:
 
        git commit -am "short message"
-
        git push origin master
 
 6. A useful command is
