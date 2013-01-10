@@ -3,6 +3,7 @@
 
 \def\ket#1{|#1\rangle}
 \def\X{{\bf X}}
+\def\A{{\bf A}}
 
 \begin{document}
 
@@ -118,14 +119,22 @@ which simplifies to
      (-1)^{N-1} (\sin N\epsilon + i\cos N\epsilon\,\X)
 \end{equation}
 
-Now put an absorber in one of the arms
+Now put an absorber in one of the arms.  Then
 \begin{equation}
-\left( \begin{array}{cc} 0 & i\sin\epsilon \\
-                         0 & -\cos\epsilon \end{array} \right)^{N-1}
-\left( \begin{array}{cc} \sin\epsilon & i\cos\epsilon \\
-                        i\cos\epsilon & \sin\epsilon \end{array} \right)
+     \left[ (\sin\epsilon + i\cos\epsilon\,\X) \; i\A \right]^N \;
+     (\sin\epsilon + i\cos\epsilon\,\X)
 \end{equation}
-
+where
+\begin{equation}
+\A \equiv \left( \begin{array}{cc} 0 & 1 \\ 0 & 0 \end{array} \right)
+\end{equation}
+Comes out to
+\begin{equation}
+(-1)^{N-1} \, \cos^N\!\epsilon \,
+\left( \begin{array}{cc} \tan\epsilon & -i\tan^2\epsilon \\
+                         i            & \tan\epsilon 
+       \end{array} \right)
+\end{equation}
 
 \section{Coupled oscillators}
 
@@ -416,7 +425,7 @@ resistance reduces dissipation.
 %         {$-\sin2\epsilon\;\ket1$}}}
 % <3>
 % \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\frac 12\sin2\epsilon\;\ket0$}}
+%         {$-\sin\epsilon\cos\epsilon\;\ket0$}}
 %         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
 %         {$-i\cos^2\epsilon\;\ket1$}}}
 % <5>
@@ -456,7 +465,7 @@ resistance reduces dissipation.
          {$-\sin2\epsilon\;\ket1$}}
 % <3>
 % \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\frac 12\sin2\epsilon\;\ket0$}}
+%         {$-\sin\epsilon\cos\epsilon\;\ket0$}}
 %         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
 %         {$-i\cos^2\epsilon\;\ket1$}}}
 % <5>
@@ -496,7 +505,7 @@ resistance reduces dissipation.
 %         {$-\sin2\epsilon\;\ket1$}}}
 % <3>
 \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-         {$-\frac 12\sin2\epsilon\;\ket0$}}
+         {$-\sin\epsilon\cos\epsilon\;\ket0$}}
           \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
          {$-i\cos^2\epsilon\;\ket1$}}
 % <5>
