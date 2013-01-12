@@ -192,106 +192,7 @@ resistance reduces dissipation.
 
 \newpage
 
-\def\zero{{\bf 0}}
 \def\vmargin{\hrule height 1cm width 0pt}
-
-\def\pgfbeamsplitter(#1,#2){\pgfputat{\pgfxy(#1,#2)}
-                            {\pgfbox[center,center]
-                             {$e^{i\alpha\X}$}
-                            \pgfxyline(-.8,0)(0,.8)
-                            \pgfxyline(0,.8)(.8,0)
-                            \pgfxyline(.8,0)(0,-.8)
-                            \pgfxyline(0,-.8)(-.8,0)}}
-
-\def\pgfmirror(#1,#2){\pgfputat{\pgfxy(#1,#2)}
-                      {\pgfbox[center,center]{$\X$}
-                      \pgfxyline(-.4,-.4)(.4,-.4)
-                      \pgfxyline(.4,-.4)(.4,.4)
-                      \pgfxyline(.4,.4)(-.4,.4)
-                      \pgfxyline(-.4,.4)(-.4,-.4)}}
-
-\def\pgfabsorber(#1,#2){\pgfputat{\pgfxy(#1,#2)}
-                      {\pgfbox[center,center]{$\zero$}
-                      \pgfxyline(-.4,-.4)(.4,-.4)
-                      \pgfxyline(.4,-.4)(.4,.4)
-                      \pgfxyline(.4,.4)(-.4,.4)
-                      \pgfxyline(-.4,.4)(-.4,-.4)}}
-
-
-\begin{figure}
-\begin{center}
-\vmargin
-\begin{pgfpicture}
-\pgfbeamsplitter(0,0)
-\pgfmirror(2,2)
-\pgfmirror(2,-2)
-\pgfbeamsplitter(4,0)
-\pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,-1.5)(-.5,-.5)
-\pgfxyline(.5,.5)(1.5,1.5)
-\pgfxyline(.5,-.5)(1.5,-1.5)
-\pgfxyline(2.5,1.5)(3.5,.5)
-\pgfxyline(2.5,-1.5)(3.5,-.5)
-\pgfxyline(4.5,.5)(5.5,1.5)
-\pgfxyline(4.5,-.5)(5.5,-1.5)
-\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$|0\rangle$}}
-\pgfputat{\pgfxy(5.7,1.7)}{\pgfbox[left,center]{$i\sin2\alpha\;|0\rangle$}}
-\pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]{$\cos2\alpha\;|1\rangle$}}
-\end{pgfpicture}
-\vmargin\vmargin\vmargin
-\begin{pgfpicture}
-\pgfbeamsplitter(0,0)
-\pgfmirror(2,2)
-\pgfmirror(2,-2)
-\pgfbeamsplitter(4,0)
-\pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,1.5)(-.5,.5)
-\pgfxyline(.5,.5)(1.5,1.5)
-\pgfxyline(.5,-.5)(1.5,-1.5)
-\pgfxyline(2.5,1.5)(3.5,.5)
-\pgfxyline(2.5,-1.5)(3.5,-.5)
-\pgfxyline(4.5,.5)(5.5,1.5)
-\pgfxyline(4.5,-.5)(5.5,-1.5)
-\pgfputat{\pgfxy(-1.7,1.7)}{\pgfbox[right,center]{$\ket1$}}
-\pgfputat{\pgfxy(5.7,1.7)}{\pgfbox[left,center]{$\cos2\alpha\;\ket0$}}
-\pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]{$i\sin2\alpha\;\ket1$}}
-\end{pgfpicture}
-\end{center}
-\caption{\label{fig:mz} Schematic representation of a Mach-Zehnder
-  interferometer, with the results of two possible inputs.  Arrows
-  corresponds to light paths.  We express a photon moving towards
-  upper right as $\ket0$ and a photon moving towards lower right as
-  $\ket1$.  A mirror acts as a swap operator $\X$.  A beam splitter is
-  expressed by the operator $e^{i\alpha\X}$.  If $\alpha=0$ the
-  beam-splitter is fully transmissive, while $\alpha=\frac\pi2$ means
-  fully reflective.}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\vmargin
-\begin{pgfpicture}
-\pgfbeamsplitter(0,0)
-\pgfabsorber(2,2)
-\pgfmirror(2,-2)
-\pgfbeamsplitter(4,0)
-\pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,-1.5)(-.5,-.5)
-\pgfxyline(.5,.5)(1.5,1.5)
-\pgfxyline(.5,-.5)(1.5,-1.5)
-\pgfxyline(2.5,-1.5)(3.5,-.5)
-\pgfxyline(4.5,.5)(5.5,1.5)
-\pgfxyline(4.5,-.5)(5.5,-1.5)
-\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}}
-\pgfputat{\pgfxy(5.7,1.7)}
-         {\pgfbox[left,center]{$\frac i2\sin2\alpha\;\ket0$}}
-\pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]{$-\sin^2\alpha\;\ket1$}}
-\end{pgfpicture}
-\vmargin
-\end{center}
-\caption{\label{fig:absorb} Schematic represenation of a Mach-Zehnder
-  interferometer with an absorber in one arm.}
-\end{figure}
 
 
 \def\pgfbeamsplitter(#1,#2)#3{\pgfputat{\pgfxy(#1,#2)}
@@ -300,6 +201,14 @@ resistance reduces dissipation.
                                \pgfxyline(0,1.1)(1.1,0)
                                \pgfxyline(1.1,0)(0,-1.1)
                                \pgfxyline(0,-1.1)(-1.1,0)}}
+
+\def\pgfbeamsplitter(#1,#2)#3{\pgfputat{\pgfxy(#1,#2)}
+                              {\pgfbox[center,center]#3
+                               \pgfxyline(-1.1,0)(0,1.1)
+                               \pgfxyline(0,1.1)(1.1,0)
+                               \pgfxyline(1.1,0)(0,-1.1)
+                               \pgfxyline(0,-1.1)(-1.1,0)}}
+
 
 \def\semireflecting{$\hbox{beam}\atop\hbox{splitter}$}
 \def\arbireflecting{$e^{i\alpha\X}$}
@@ -318,9 +227,8 @@ resistance reduces dissipation.
                       \pgfxyline(.4,-.4)(.4,.4)
                       \pgfxyline(.4,.4)(-.4,.4)
                       \pgfxyline(-.4,.4)(-.4,-.4)}}
-
 \def\pgfabsorber(#1,#2){\pgfputat{\pgfxy(#1,#2)}
-                      {\pgfbox[center,center]{$\zero$}
+                      {\pgfbox[center,center]{$\bf 0$}
                       \pgfxyline(-.4,-.4)(.4,-.4)
                       \pgfxyline(.4,-.4)(.4,.4)
                       \pgfxyline(.4,.4)(-.4,.4)
@@ -329,191 +237,118 @@ resistance reduces dissipation.
 \begin{figure}
 \begin{center}
 \vmargin
-
 \begin{pgfpicture}
 \pgfbeamsplitter(0,0)\semireflecting
-\pgfsimpmirror(2,2) % 1-3,6
-% \pgfabsorber(2,2) % 4,5
+\pgfsimpmirror(2,2) 
 \pgfsimpmirror(2,-2)
 \pgfbeamsplitter(4,0)\semireflecting
 \pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,-1.5)(-.7,-.7) % 1,3-
-% \pgfxyline(-1.5, 1.5)(-.7, .7) % 2
+\pgfxyline(-1.5,-1.5)(-.7,-.7) 
 \pgfxyline(.7,.7)(1.5,1.5)
 \pgfxyline(.7,-.7)(1.5,-1.5)
-\pgfxyline(2.5,1.5)(3.3,.7) % 1-3,6
+\pgfxyline(2.5,1.5)(3.3,.7) 
 \pgfxyline(2.5,-1.5)(3.3,-.7)
-\pgfxyline(4.7,.7)(5.5,1.5) % 1,3-
-% \pgfxyline(4.7,-.7)(5.5,-1.5) % 2,4-5
+\pgfxyline(4.7,.7)(5.5,1.5) 
 \end{pgfpicture}
-
 \vmargin\vmargin\vmargin
-
 \begin{pgfpicture}
 \pgfbeamsplitter(0,0)\semireflecting
-\pgfsimpmirror(2,2) % 1-3,6
-% \pgfabsorber(2,2) % 4,5
+\pgfsimpmirror(2,2) 
 \pgfsimpmirror(2,-2)
 \pgfbeamsplitter(4,0)\semireflecting
 \pgfsetendarrow{\pgfarrowsingle}
-% \pgfxyline(-1.5,-1.5)(-.7,-.7) % 1,3-
-\pgfxyline(-1.5, 1.5)(-.7, .7) % 2
+\pgfxyline(-1.5, 1.5)(-.7, .7) 
 \pgfxyline(.7,.7)(1.5,1.5)
 \pgfxyline(.7,-.7)(1.5,-1.5)
-\pgfxyline(2.5,1.5)(3.3,.7) % 1-3,6
+\pgfxyline(2.5,1.5)(3.3,.7) 
 \pgfxyline(2.5,-1.5)(3.3,-.7)
-% \pgfxyline(4.7,.7)(5.5,1.5) % 1,3-
-\pgfxyline(4.7,-.7)(5.5,-1.5) % 2,4-5
+\pgfxyline(4.7,-.7)(5.5,-1.5) 
 \end{pgfpicture}
-
 \vmargin\vmargin\vmargin
-
 \begin{pgfpicture}
 \pgfbeamsplitter(0,0)\semireflecting
-% \pgfsimpmirror(2,2) % 1-3,6
-\pgfabsorber(2,2) % 4,5
+\pgfabsorber(2,2) 
 \pgfsimpmirror(2,-2)
 \pgfbeamsplitter(4,0)\semireflecting
 \pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,-1.5)(-.7,-.7) % 1,3-
-% \pgfxyline(-1.5, 1.5)(-.7, .7) % 2
+\pgfxyline(-1.5,-1.5)(-.7,-.7) 
 \pgfxyline(.7,.7)(1.5,1.5)
 \pgfxyline(.7,-.7)(1.5,-1.5)
-% \pgfxyline(2.5,1.5)(3.3,.7) % 1-3,6
 \pgfxyline(2.5,-1.5)(3.3,-.7)
-\pgfxyline(4.7,.7)(5.5,1.5) % 1,3-
-\pgfxyline(4.7,-.7)(5.5,-1.5) % 2,4-5
+\pgfxyline(4.7,.7)(5.5,1.5) 
+\pgfxyline(4.7,-.7)(5.5,-1.5) 
 \end{pgfpicture}
-
 \end{center}
-\caption{\label{fig:mach-zehnder}}
+\caption{\label{fig:mz} Schematic representation of a Mach-Zehnder
+  interferometer.}
 \end{figure}
 
 \begin{figure}
 \begin{center}
 \vmargin
-
 \begin{pgfpicture}
-\pgfbeamsplitter(0,0)\nearlytransparent % 2-
-\pgfmirror(2,2) % 1-4
-% \pgfabsorber(2,2) % 5
+\pgfbeamsplitter(0,0)\nearlytransparent 
+\pgfmirror(2,2) 
 \pgfmirror(2,-2)
-\pgfbeamsplitter(4,0)\nearlytransparent % 2-
+\pgfbeamsplitter(4,0)\nearlytransparent 
 \pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,-1.5)(-.7,-.7) % 1-2,4-
-% \pgfxyline(-1.5, 1.5)(-.7, .7) % 3
+\pgfxyline(-1.5,-1.5)(-.7,-.7) 
 \pgfxyline(.7,.7)(1.5,1.5)
 \pgfxyline(.7,-.7)(1.5,-1.5)
-\pgfxyline(2.5,1.5)(3.3,.7) % 1-4
+\pgfxyline(2.5,1.5)(3.3,.7) 
 \pgfxyline(2.5,-1.5)(3.3,-.7)
 \pgfxyline(4.7,.7)(5.5,1.5)
 \pgfxyline(4.7,-.7)(5.5,-1.5)
-\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}} % 1-2,4-
-% \pgfputat{\pgfxy(-1.7, 1.7)}{\pgfbox[right,center]{$\ket1$}} % 3
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\cos2\alpha\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\sin2\alpha\;\ket1$}}}
+\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}} 
 \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
          {$-\sin2\epsilon\;\ket0$}}
          \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
          {$-i\cos2\epsilon\;\ket1$}}
-% <2,4>
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-i\cos2\epsilon\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-\sin2\epsilon\;\ket1$}}}
-% <3>
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\sin\epsilon\cos\epsilon\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\cos^2\epsilon\;\ket1$}}}
-% <5>
 \end{pgfpicture}
-
 \vmargin\vmargin\vmargin
-
 \begin{pgfpicture}
-\pgfbeamsplitter(0,0)\nearlytransparent % 2-
-\pgfmirror(2,2) % 1-4
-% \pgfabsorber(2,2) % 5
+\pgfbeamsplitter(0,0)\nearlytransparent 
+\pgfmirror(2,2) 
 \pgfmirror(2,-2)
-\pgfbeamsplitter(4,0)\nearlytransparent % 2-
+\pgfbeamsplitter(4,0)\nearlytransparent 
 \pgfsetendarrow{\pgfarrowsingle}
-% \pgfxyline(-1.5,-1.5)(-.7,-.7) % 1-2,4-
-\pgfxyline(-1.5, 1.5)(-.7, .7) % 3
+\pgfxyline(-1.5, 1.5)(-.7, .7) 
 \pgfxyline(.7,.7)(1.5,1.5)
 \pgfxyline(.7,-.7)(1.5,-1.5)
-\pgfxyline(2.5,1.5)(3.3,.7) % 1-4
+\pgfxyline(2.5,1.5)(3.3,.7) 
 \pgfxyline(2.5,-1.5)(3.3,-.7)
 \pgfxyline(4.7,.7)(5.5,1.5)
 \pgfxyline(4.7,-.7)(5.5,-1.5)
-% \pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}} % 1-2,4-
-\pgfputat{\pgfxy(-1.7, 1.7)}{\pgfbox[right,center]{$\ket1$}} % 3
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\cos2\alpha\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\sin2\alpha\;\ket1$}}}
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\sin2\epsilon\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\cos2\epsilon\;\ket1$}}}
-% <2,4>
+\pgfputat{\pgfxy(-1.7, 1.7)}{\pgfbox[right,center]{$\ket1$}} 
 \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
          {$-i\cos2\epsilon\;\ket0$}}
           \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
          {$-\sin2\epsilon\;\ket1$}}
-% <3>
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\sin\epsilon\cos\epsilon\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\cos^2\epsilon\;\ket1$}}}
-% <5>
 \end{pgfpicture}
-
 \vmargin\vmargin\vmargin
-
 \begin{pgfpicture}
-\pgfbeamsplitter(0,0)\nearlytransparent % 2-
-% \pgfmirror(2,2) % 1-4
-\pgfabsorber(2,2) % 5
+\pgfbeamsplitter(0,0)\nearlytransparent 
+\pgfabsorber(2,2) 
 \pgfmirror(2,-2)
-\pgfbeamsplitter(4,0)\nearlytransparent % 2-
+\pgfbeamsplitter(4,0)\nearlytransparent 
 \pgfsetendarrow{\pgfarrowsingle}
-\pgfxyline(-1.5,-1.5)(-.7,-.7) % 1-2,4-
-% \pgfxyline(-1.5, 1.5)(-.7, .7) % 3
+\pgfxyline(-1.5,-1.5)(-.7,-.7) 
 \pgfxyline(.7,.7)(1.5,1.5)
 \pgfxyline(.7,-.7)(1.5,-1.5)
-% \pgfxyline(2.5,1.5)(3.3,.7) % 1-4
 \pgfxyline(2.5,-1.5)(3.3,-.7)
 \pgfxyline(4.7,.7)(5.5,1.5)
 \pgfxyline(4.7,-.7)(5.5,-1.5)
-\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}} % 1-2,4-
-% \pgfputat{\pgfxy(-1.7, 1.7)}{\pgfbox[right,center]{$\ket1$}} % 3
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\cos2\alpha\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\sin2\alpha\;\ket1$}}}
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-\sin2\epsilon\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-i\cos2\epsilon\;\ket1$}}}
-% <2,4>
-% \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
-%         {$-i\cos2\epsilon\;\ket0$}}
-%         \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
-%         {$-\sin2\epsilon\;\ket1$}}}
-% <3>
+\pgfputat{\pgfxy(-1.7,-1.7)}{\pgfbox[right,center]{$\ket0$}} 
 \pgfputat{\pgfxy(5.7, 1.7)}{\pgfbox[left,center]
          {$-\sin\epsilon\cos\epsilon\;\ket0$}}
           \pgfputat{\pgfxy(5.7,-1.7)}{\pgfbox[left,center]
          {$-i\cos^2\epsilon\;\ket1$}}
-% <5>
 \end{pgfpicture}
-
-
 \end{center}
-\caption{\label{fig:qubits}}
+\caption{\label{fig:qubits} Schematic Mach-Zehnder interferometer with
+  states and operators.  A photon moving towards upper right is
+  denoted by $\ket0$ and a photon moving towards lower right is
+  written as $\ket1$.}
 \end{figure}
 
 
