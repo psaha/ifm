@@ -84,22 +84,36 @@ of coupled oscillators.
 
 \section{Quantum formulation}
 
-Most discussion in the literature is in terms of a Mach-Zehnder
-interferometer.  With the help of Figure~{\ref{fig:mz}} we can relate
-this to qubit notation.
+The above thought experiment involving rotation the polarization plane
+of photon is one simple way to approach the concept of
+interaction-free measurement, but not the only one.  Another
+well-known description, which more closely resembles some of the
+actual experiments, is in terms of a Mach-Zehnder interferometer.  The
+horizontal and vertical polarization states are replaced by the two
+arms of the interferometer.  Figure~\ref{fig:mz} schematically shows
+the $N=1$ case; the general case would be a concatenation of such
+setups.
+
+With these concrete descriptions in mind, let us formalize the process
+of interaction-free measurement.  We write the two eigenstates in the
+notation of cubits
 \begin{equation}
 \ket0 \equiv \left( \begin{array}{c} 1 \\ 0 \end{array} \right)  \qquad
-\ket1 \equiv \left( \begin{array}{c} 0 \\ 1 \end{array} \right)  \qquad
+\ket1 \equiv \left( \begin{array}{c} 0 \\ 1 \end{array} \right)
+\end{equation}
+and
+\begin{equation}
 \X \equiv \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)
 \end{equation}
-A mirror acts as a swap operator $i\X$ and a beam-splitter acts as
+denotes a swap operator.  A beam splitter is given by the unitary operator
 \begin{equation}
 \exp\left[i\left({\textstyle\frac\pi2-\epsilon}\right)\right] \X \equiv
 \sin\epsilon + i\cos\epsilon\,\X
 \end{equation}
-Then $\cos^2\epsilon$ is the reflectivity.
+Then $\cos^2\epsilon$ is the reflectivity.  A mirror is simply $i\X$.
 
-The whole interferometer applies the operation
+The consecutive operations of beam-splitting, reflection and beam
+splitting can be written as
 \begin{equation}
      (\sin\epsilon + i\cos\epsilon\,\X)
      \; i\X \;
@@ -107,34 +121,34 @@ The whole interferometer applies the operation
 \end{equation}
 which simplifies to
 \begin{equation}
-     -(\sin2\epsilon + i\cos2\epsilon\,\X)
+     -(\sin2\epsilon + i\cos2\epsilon\,\X) \,.
 \end{equation}
-More arms
+A cascade with beam-splitter followed by mirror $N$ times is
 \begin{equation}
      \left[ (\sin\epsilon + i\cos\epsilon\,\X) \; i\X \right]^N \;
      (\sin\epsilon + i\cos\epsilon\,\X)
 \end{equation}
 which simplifies to
 \begin{equation}
-     (-1)^{N-1} (\sin N\epsilon + i\cos N\epsilon\,\X)
+     (-1)^{N-1} (\sin N\epsilon + i\cos N\epsilon\,\X)  \,.
 \end{equation}
+If $N\epsilon=\pi/2$ this is identity, apart from a phase factor.
 
-Now put an absorber in one of the arms.  Then
+Now put an absorber in one of the arms.  Then we will have
 \begin{equation}
      \left[ (\sin\epsilon + i\cos\epsilon\,\X) \; i\A \right]^N \;
      (\sin\epsilon + i\cos\epsilon\,\X)
+  \qquad
+  \A \equiv \left( \begin{array}{cc} 0 & 1 \\ 0 & 0 \end{array} \right)
 \end{equation}
-where
-\begin{equation}
-\A \equiv \left( \begin{array}{cc} 0 & 1 \\ 0 & 0 \end{array} \right)
-\end{equation}
-Comes out to
+Working out the algebra gives
 \begin{equation}
 (-1)^{N-1} \, \cos^N\!\epsilon \,
 \left( \begin{array}{cc} \tan\epsilon & -i\tan^2\epsilon \\
                          i            & \tan\epsilon 
        \end{array} \right)
 \end{equation}
+If $\epsilon$ is small, this changes $\ket0$ to $\ket1$.
 
 \section{A classical analogy}
 
@@ -279,8 +293,14 @@ resistance reduces dissipation.
 \pgfxyline(4.7,-.7)(5.5,-1.5) 
 \end{pgfpicture}
 \end{center}
-\caption{\label{fig:mz} Schematic representation of a Mach-Zehnder
-  interferometer.}
+\caption{\label{fig:mz} Schematic representation of interaction-free
+  measurement. Each diagram stands for a Mach-Zehnder set up so that
+  both arms are exactly equal.  Accordingly, a photon sent axially
+  into one arm emerges parallel to the original direction.  This is
+  seen in the upper and middle diagrams.  In the lower diagram, one of
+  the mirrors is replaced by an absorber, and as a result, photons can
+  emerge parallel to their original direction.  Such photons
+  effectively detect the absorber without getting absorbed.}
 \end{figure}
 
 \begin{figure}
@@ -345,10 +365,12 @@ resistance reduces dissipation.
          {$-i\cos^2\epsilon\;\ket1$}}
 \end{pgfpicture}
 \end{center}
-\caption{\label{fig:qubits} Schematic Mach-Zehnder interferometer with
-  states and operators.  A photon moving towards upper right is
-  denoted by $\ket0$ and a photon moving towards lower right is
-  written as $\ket1$.}
+\caption{\label{fig:qubits} Like Figure \ref{fig:mz} but annotated
+  with quantum states and operators.  A photon is denoted by $\ket0$
+  if moving towards upper right, and by $\ket1$ if moving towards
+  lower right.  Beam splitters and mirrors are unitary operators.  An
+  absorber is a non-unitary operator, which zeros the $\ket0$
+  subspace.}
 \end{figure}
 
 
