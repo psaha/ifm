@@ -1,8 +1,17 @@
-To grab the files use
+To work on this project you will need to do the following.
+
+1. Create yourself an account on github (free).
+
+2. Set ssh keys so you can communicate securely with the server.
+   See https://help.github.com/articles/generating-ssh-keys
+
+   This needs to be done only once per account per machine.
+
+3. Clone the repository using
 
    git clone git@github.com:psaha/ifm
 
-Files will got into the ifm/ directory.
+Files will go into the ifm/ directory.
 
 You can update from the server at any time by typing
 
@@ -10,12 +19,10 @@ You can update from the server at any time by typing
 
 inside the ifm directory.
 
-To edit collaboratively, you'll need to do a few more things.
+4. To edit collaboratively, tell me your username, so I can add you as
+   a collaborator.
 
-1. Create yourself an account on github (free) and tell me your
-   username, so I can add you as a collaborator.
-
-2. Configure git on your machine, adapting the following
+5. Configure git on your machine, adapting the following
 
        git config --global user.name "Alan M Turing"
        git config --global user.email amt@universal.machine
@@ -23,30 +30,23 @@ To edit collaboratively, you'll need to do a few more things.
    This is not essential, but good practice.  It's fine to put your
    real name and email address here -- no spam results.
 
-   This step needs to be done once per person per machine.
-
-3. Set ssh keys so you can communicate securely with the server.
-   See https://help.github.com/articles/generating-ssh-keys
-
-   This step also needs to be done once per person per machine.
-
-4. When you add a new file that you wish to be tracked:
+6. When you add a new file that you wish to be tracked:
 
        git add myfile
 
-5. When you want to send your current version to the server:
+7. When you want to send your current version to the server:
 
        git commit -am "short message"
        git push origin master
 
-6. A useful command is
+8. A useful command is
 
        git status
 
-7. You can see stats and stuff here:
-   https://github.com/psaha/ifm
+9. You can see stats and stuff here:
+    https://github.com/psaha/ifm
 
-8. Absolutely everything about git:
+10. Absolutely everything about git:
 
    http://git-scm.com/book/
 
