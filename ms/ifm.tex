@@ -7,7 +7,7 @@
 
 \begin{document}
 
-\title{Quantum interaction-free measurement and a classical analog}
+\title{A Classical Analog of Quantum Interaction-Free Measurement}
 
 \author{Prasenjit Saha}
 \email{psaha@physik.uzh.ch}
@@ -20,14 +20,27 @@ Honolulu, HI 96822}
 \date{\today}
 
 \begin{abstract}
-Interaction-free measurement refers to quantum phenomena such as the
-presence of a photon absorber being inferred without it absorbing any
-photons.  We review the physics and its realization in interferometric
-experiments.  We then consider a simple classical system: two coupled
-oscillators, one of which is damped; the energy dissipation can be
-made arbitrarily small by making the damping large enough.  The
-phenomenon can be considered analogous to interaction-free
-measurement.
+Interaction-free measurement is usually discussed in quantum language and
+refers to phenomena such as the presence of a photon absorber being
+inferred without it actually absorbing any photons.  Here we make the
+simple observation that there is an
+exactly analogous situation in classical mechanics: If one has
+a pair of identical coupled oscillators A \& B, and A is set in motion,
+then one will see the strength of the oscillation of A slowly decrease
+with time, and over longer times the energy will periodically `slosh' back
+and forth between the two systems.  But if instead oscillator B is damped -- so
+it is able to {\em absorb\/} energy -- the rate of decrease of the
+energy in oscillator A will be suppressed.   
+Thus one can infer the ability of oscillator B to 
+absorb energy by observing the behaviour of oscillator A without, in
+the limit that the damping is strong, there actually being any
+energy absorbed.
+% We review the physics and its realization in interferometric
+% experiments.  We then consider a simple classical system: two coupled
+% oscillators, one of which is damped; the energy dissipation can be
+% made arbitrarily small by making the damping large enough.  The
+% phenomenon can be considered analogous to interaction-free
+% measurement.
 \end{abstract}
 
 \maketitle
@@ -38,18 +51,21 @@ Many quantum paradoxes have been explored theoretically and
 experimentally in recent years.  Most involve entangled states: the
 famous EPR paradox is an old example, and quantum computing is a more
 recent development\cite{2007qucosc.book}.  Entanglement is considered
-an intrinsically quantum phenonemn classical analog.
+an intrinsically quantum phenonemon with no classical analog.
 
 There are also counter-intuitive quantum phenonema not involving
 entanglement.  Imagine a photon, initially in a ``vertical'' polarized
 state.  It is sent through a Faraday rotator, and then through a
 vertically polarizing sheet.  The former rotates the polarization
-plane towards ``horizontal'' by small angle, say $\pi/(2N)$, where $N$
+plane towards ``horizontal'' by a small angle, say $\pi/(2N)$, where $N$
 is large.  The latter effectively measures the polarization state in
 the vertical/horizontal basis; if the result comes out horizontal, the
 photon is absorbed, otherwise it goes through in a vertical
 eigenstate.  Since $N$ is large, the chances of being absorbed are
-small.  Most likely, the photon will get slightly rotated and then
+small.  More specifically, after the rotation the {\em amplitude\/}
+to be in the horizontal state will be of order $1/N$ so the probability to be
+in that mode -- and therefore the probability of absorption -- is of order $1/N^2$.
+Thus, most likely, the photon will get slightly rotated and then
 reset to vertical.  If the photon is re-routed back to the apparatus
 $N$ times, it will still most likely emerge vertically polarized.  The
 rotator and the polarizer appear to cancel each other out.  The
@@ -59,12 +75,19 @@ everyday language, in terms of waking and sleeping
 states.\cite{orzel2009teach}
 
 What happens if we now remove the polarizer?  Clearly, the $N$ Faraday
-rotations will take the photon to a horizontal state.  Thus, the net
-effect of the polarizer is (most likely) to rotate a photon from
-horizontal to vertical.  Recall that the polarizer is really just an
-absorber of horizontal photons.  Yet it can, within a clever setup, be
-made to rotate photons instead of absorbing them.  This is the essence
-of interaction-free measurement.  Since the initial suggestion
+rotations will then convert the photon to a horizontal state.  Thus, the net
+effect of the polarizer is to rotate a photon from
+horizontal to vertical.  Despite the fact that the polarizer is really just an
+absorber of horizontal photons, it can, within this experimental set-up, have
+the effect of rotating photons instead of absorbing them.  This is the essence
+of interaction-free measurement; we can infer, or `measure' the presence or absence
+of the polarizer by measuring the polarization.  If the polarization is rotated
+we know that the absorber cannot have been present -- and there is then of course
+no absorption -- while if the polarization is not changed then we know that
+the absorber was present, but again, at least in the limit $N \rightarrow \infty$,
+no absorption actually takes place.
+
+Since the initial suggestion
 (essentially the $N=1$ case)\cite{1993FoPh...23..987E} and
 generalization to the now-standard form, together with the first
 experiments\cite{PhysRevLett.74.4763} interaction-free measurement has
@@ -73,7 +96,7 @@ demonstrations\cite{voorthuysen:1504,2006JPhB...39.3177N} and
 reviews,\cite{deweerd:272} and applications aiming towards medical
 imaging are starting to appear\cite{PhysRevA.80.040902}.  (An older
 usage of similar
-terminalogy\cite{springerlink:10.1007/BF01327019,dicke:925} refers to
+terminology\cite{springerlink:10.1007/BF01327019,dicke:925} refers to
 a situation where a non-detection enables an inference.)
 
 In this paper, we relate the above simple picture on the one hand to
@@ -81,7 +104,7 @@ the standard description of interaction-free measurement in terms of
 an interferometric setup, and on the other hand to a classical system
 of coupled oscillators.
 
-\section{Quantum formulation}
+\section{Quantum/Wave-Mechanical formulation}
 
 The above thought experiment involving rotation the polarization plane
 of photon is one simple way to approach the concept of
@@ -95,7 +118,7 @@ setups.
 
 With these concrete descriptions in mind, let us formalize the process
 of interaction-free measurement.  We write the two eigenstates in the
-notation of cubits
+notation of qbits
 \begin{equation}
 \ket0 \equiv \left( \begin{array}{c} 1 \\ 0 \end{array} \right)  \qquad
 \ket1 \equiv \left( \begin{array}{c} 0 \\ 1 \end{array} \right)
@@ -150,23 +173,41 @@ Working out the algebra gives
 If $\epsilon$ is small (very slightly transmissive) this operator
 changes $\ket0$ to $\ket1$.
 
-\section{A classical analogy}
+The discussion above uses the quantum mechanical language of
+`states', but the behaviour of such an interferometer can, of course,
+but understood entirely as a purely classical wave obeying
+Maxwell's equations.
 
-Consider two coupled oscillators, one of them damped.
+\section{The classical analogy}
+
+To flesh out the observation of the abstract, 
+consider two coupled oscillators, one of them damped.
 \begin{equation}
 \begin{array}{l}
 \ddot x + x + \kappa y = 0 \\
 \ddot y + y + \kappa x + \gamma y = 0
 \end{array}
 \end{equation}
-If $\gamma=0$ has solutions of the form
+In the absence of damping ($\gamma=0$), it is easy to verify that
 \begin{equation}
 \begin{array}{l}
-x = \cos(\sqrt{1+\kappa}\,t) + \cos(\sqrt{1-\kappa}\,t)  \\
-y = \cos(\sqrt{1+\kappa}\,t) - \cos(\sqrt{1-\kappa}\,t)
+2x = \cos(\sqrt{1+\kappa}\,t) + \cos(\sqrt{1-\kappa}\,t)  \\
+2y = \cos(\sqrt{1+\kappa}\,t) - \cos(\sqrt{1-\kappa}\,t)
 \end{array}
 \end{equation}
-and the amplitude sloshes from one to the other.
+is a solution for the initial conditions
+\begin{equation}
+x(0) = 1, y(0) = \dot x(0) = \dot y(0) = 0 \,.
+\end{equation}
+If the coupling is weak ($\kappa\ll1$) the solution takes the form
+\begin{equation}
+\begin{array}{l}
+x = \cos(\frac12\kappa t) \cos t \\
+y = -\sin(\frac12\kappa t) \sin t \\
+\end{array}
+\end{equation}
+and the amplitude sloshes from $x$ to $y$.  The weaker the coupling,
+the slower the transfer of energy between the oscillators.
 
 With damping, easiest to solve using Laplace transform. For the
 initial conditions $x(0)=1$ and $\dot x(0) = y(0) = \dot y(0) = 0$ we
@@ -295,12 +336,12 @@ resistance reduces dissipation.
 \end{center}
 \caption{\label{fig:mz} Schematic representation of interaction-free
   measurement. Each diagram stands for a Mach-Zehnder set up so that
-  both arms are exactly equal.  Accordingly, a photon sent axially
-  into one arm emerges parallel to the original direction.  This is
-  seen in the upper and middle diagrams.  In the lower diagram, one of
-  the mirrors is replaced by an absorber, and as a result, photons can
-  emerge perpendicular to their original direction.  Such photons
-  effectively detect the absorber without getting absorbed.}
+  both arms are exactly equal.  In the upper and middle diagrams, a
+  photon sent axially into one arm emerges parallel to the original
+  direction.  In the lower diagram, one of the mirrors is replaced by
+  an absorber, and as a result, photons can emerge perpendicular to
+  their original direction.  Such photons effectively detect the
+  absorber without getting absorbed.}
 \end{figure}
 
 \begin{figure}
@@ -366,11 +407,10 @@ resistance reduces dissipation.
 \end{pgfpicture}
 \end{center}
 \caption{\label{fig:qubits} Like Figure \ref{fig:mz} but annotated
-  with quantum states and operators.  A photon is denoted by $\ket0$
-  if moving towards upper right, and by $\ket1$ if moving towards
-  lower right.  Beam splitters and mirrors are unitary operators.  An
-  absorber is a non-unitary operator, which zeros the $\ket0$
-  subspace.}
+  with states and operators.  A photon is denoted by $\ket0$ if moving
+  towards upper right, and by $\ket1$ if moving towards lower right.
+  Beam splitters and mirrors are unitary operators.  An absorber is a
+  non-unitary operator, which zeros the $\ket0$ subspace.}
 \end{figure}
 
 
