@@ -57,54 +57,52 @@ There are also counter-intuitive quantum phenonema not involving
 entanglement.  Imagine a photon, initially in a ``vertical'' polarized
 state.  It is sent through a Faraday rotator, and then through a
 vertically polarizing sheet.  The former rotates the polarization
-plane towards ``horizontal'' by a small angle, say $\pi/(2N)$, where $N$
-is large.  The latter effectively measures the polarization state in
-the vertical/horizontal basis; if the result comes out horizontal, the
-photon is absorbed, otherwise it goes through in a vertical
+plane towards ``horizontal'' by a small angle, say $\pi/(2N)$, where
+$N$ is large.  The latter effectively measures the polarization state
+in the vertical/horizontal basis; if the result comes out horizontal,
+the photon is absorbed, otherwise it goes through in a vertical
 eigenstate.  Since $N$ is large, the chances of being absorbed are
-small.  More specifically, after the rotation the {\em amplitude\/}
-to be in the horizontal state will be of order $1/N$ so the probability to be
-in that mode -- and therefore the probability of absorption -- is of order $1/N^2$.
-Thus, most likely, the photon will get slightly rotated and then
-reset to vertical.  If the photon is re-routed back to the apparatus
-$N$ times, it will still most likely emerge vertically polarized.  The
-rotator and the polarizer appear to cancel each other out.  The
-general phenomenon is known as the quantum Zeno
+small.  More specifically, after the rotation the {\em amplitude\/} to
+be in the horizontal state will be $\sim1/N$ so the probability to be
+in that mode --- and therefore the probability of absorption --- will
+be $\sim1/N^2$.  Thus, most likely, the photon will get slightly
+rotated and then reset to vertical.  If the photon is re-routed back
+to the apparatus $N$ times, it will still most likely emerge
+vertically polarized.  The rotator and the polarizer appear to cancel
+each other out.  The general phenomenon is known as the quantum Zeno
 effect,\cite{PhysRevA.41.2295} but it can also be described in
 everyday language, in terms of waking and sleeping
 states.\cite{orzel2009teach}
 
 What happens if we now remove the polarizer?  Clearly, the $N$ Faraday
-rotations will then convert the photon to a horizontal state.  Thus, the net
-effect of the polarizer is to rotate a photon from
-horizontal to vertical.  Despite the fact that the polarizer is really just an
-absorber of horizontal photons, it can, within this experimental set-up, have
-the effect of rotating photons instead of absorbing them.  This is the essence
-of interaction-free measurement; we can infer, or `measure' the presence or absence
-of the polarizer by measuring the polarization.  If the polarization is rotated
-we know that the absorber cannot have been present -- and there is then of course
-no absorption -- while if the polarization is not changed then we know that
-the absorber was present, but again, at least in the limit $N \rightarrow \infty$,
-no absorption actually takes place.
+rotations will then convert the photon to a horizontal state.  Thus,
+the net effect of the polarizer is to rotate a photon from horizontal
+to vertical.  Despite the fact that the polarizer is really just an
+absorber of horizontal photons, it can, within this experimental
+set-up, have the effect of rotating photons instead of absorbing them.
+This is the essence of interaction-free measurement; we can infer, or
+`measure' the presence or absence of the polarizer by measuring the
+polarization.  If the polarization is rotated we know that the
+absorber cannot have been present -- and there is then of course no
+absorption -- while if the polarization is not changed then we know
+that the absorber was present, but again, at least in the limit $N
+\rightarrow \infty$, no absorption actually takes place.
 
-Since the initial suggestion
-(essentially the $N=1$ case)\cite{1993FoPh...23..987E} and
-generalization to the now-standard form, together with the first
-experiments\cite{PhysRevLett.74.4763} interaction-free measurement has
-been the subject of many
-demonstrations\cite{voorthuysen:1504,2006JPhB...39.3177N} and
-reviews,\cite{deweerd:272} and applications aiming towards medical
-imaging are starting to appear\cite{PhysRevA.80.040902}.  (An older
-usage of similar
+Since the initial suggestion (essentially the $N=1$
+case)\cite{1993FoPh...23..987E} and generalization to the now-standard
+form, together with the first experiments\cite{PhysRevLett.74.4763}
+interaction-free measurement has been the subject of many
+demonstrations\cite{PhysRevA.57.3987,voorthuysen:1504,2006JPhB...39.3177N}
+and reviews.\cite{deweerd:272} (An older usage of similar
 terminology\cite{springerlink:10.1007/BF01327019,dicke:925} refers to
-a situation where a non-detection enables an inference.)
+a situation where a non-detection enables an inference.)  Applications
+to non-invasive medical imaging\cite{PhysRevA.80.040902} are
+particularly interesting.
 
 In this paper, we relate the above simple picture on the one hand to
 the standard description of interaction-free measurement in terms of
 an interferometric setup, and on the other hand to a classical system
 of coupled oscillators.
-
-\section{Quantum/Wave-Mechanical formulation}
 
 The above thought experiment involving rotation the polarization plane
 of photon is one simple way to approach the concept of
@@ -114,27 +112,38 @@ actual experiments, is in terms of a Mach-Zehnder interferometer.  The
 horizontal and vertical polarization states are replaced by the two
 arms of the interferometer.  Figure~\ref{fig:mz} schematically shows
 the $N=1$ case; the general case would be a concatenation of such
-setups.
+devices.
 
-With these concrete descriptions in mind, let us formalize the process
-of interaction-free measurement.  We write the two eigenstates in the
-notation of qbits
+\section{An interferometer as an absorber detector}
+
+Let us express the interferometric setup of Figure~\ref{fig:mz} in the
+language of quantum two-state systems, borrowing the notation of
+quantum computing.  Figure~\ref{fig:qubits} replaces the optical
+elements with states and operators.  The two eigenstates are rays
+moving towards upper right, or towards lower right in the figures. We
+write these states as kets or matrices as
 \begin{equation}
 \ket0 \equiv \left( \begin{array}{c} 1 \\ 0 \end{array} \right)  \qquad
 \ket1 \equiv \left( \begin{array}{c} 0 \\ 1 \end{array} \right)
 \end{equation}
-and
+while
 \begin{equation}
 \X \equiv \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)
 \end{equation}
-denotes a swap operator.  A beam splitter is given by the unitary operator
+denotes an operator swapping these states.  A beam splitter is given
+by the unitary operator
 \begin{equation}
 \exp\left[i\left({\textstyle\frac\pi2-\epsilon}\right)\right] \X \equiv
 \sin\epsilon + i\cos\epsilon\,\X
 \end{equation}
-Then $\cos^2\epsilon$ is the reflectivity.  A mirror is simply $i\X$.
+Then $\cos^2\epsilon$ is the reflectivity.  Small $\epsilon$ means
+highly reflective, and $\epsilon=0$ corresponds to a mirror, whose
+operator is $i\X$.  We emphasize, however, that the quantum notation
+does not mean the interferometer is intrinsically quantum.  The
+behavior of such an interferometer can also be understood in terms of
+classical waves obeying Maxwell's equations.
 
-The consecutive operations of beam-splitting, reflection and beam
+Consecutive operations of beam-splitting, reflection and beam
 splitting can be written as
 \begin{equation}
      (\sin\epsilon + i\cos\epsilon\,\X)
@@ -143,9 +152,15 @@ splitting can be written as
 \end{equation}
 which simplifies to
 \begin{equation}
-     -(\sin2\epsilon + i\cos2\epsilon\,\X) \,.
+     -(\sin2\epsilon + i\cos2\epsilon\,\X)
+\label{eqn:no-absorber}
 \end{equation}
-A cascade with beam-splitter followed by mirror $N-1$ times is
+and is illustrated by the upper and middle diagrams in
+Figure~\ref{fig:qubits}.
+
+If we now add more elements to the interferometer, specifically $N-1$
+sets of beam-splitters alternating with mirrors, the resulting state
+is
 \begin{equation}
      \left[ (\sin\epsilon + i\cos\epsilon\,\X) \; i\X \right]^{N-1} \;
      (\sin\epsilon + i\cos\epsilon\,\X)
@@ -156,39 +171,50 @@ which simplifies to
 \end{equation}
 If $N\epsilon=\pi/2$ this is identity, apart from a phase factor.
 
-Now put an absorber in one of the arms.  Then we will have
+Now let us put an absorber in one of the arms.  This blocks the
+$\ket0$ state, while the mirror (in the other arm) reflects $\ket1$ as
+before.  Then we will have
 \begin{equation}
      \left[ (\sin\epsilon + i\cos\epsilon\,\X) \; i\A \right]^{N-1} \;
      (\sin\epsilon + i\cos\epsilon\,\X)
   \qquad
-  \A \equiv \left( \begin{array}{cc} 0 & 1 \\ 0 & 0 \end{array} \right)
+   \A \equiv \left( \begin{array}{cc} 0 & 1 \\ 0 & 0 \end{array} \right)
 \end{equation}
-Working out the algebra gives
+involving a non-Hermitian operator $\A$.  Working out the algebra
+gives
 \begin{equation}
 (-1)^{N-1} \, \cos^N\!\epsilon \,
 \left( \begin{array}{cc} \tan\epsilon & -i\tan^2\epsilon \\
                          i            & \tan\epsilon 
        \end{array} \right)
+\label{eqn:absorber}
 \end{equation}
 If $\epsilon$ is small (very slightly transmissive) this operator
-changes $\ket0$ to $\ket1$.
+changes $\ket0$ to $\ket1$.  The lower diagram in
+Figure~\ref{fig:qubits} illustrates the result for $N=1$.
 
-The discussion above uses the quantum mechanical language of
-`states', but the behaviour of such an interferometer can, of course,
-but understood entirely as a purely classical wave obeying
-Maxwell's equations.
+The contrasting results (\ref{eqn:no-absorber}) and
+(\ref{eqn:absorber}) express the characteristic feature of
+interaction-free measurement.  With no absorber the amplitude cycles
+between $\ket0$ and $\ket1$.  An absorber blocks the sloshing, without
+necessarily absorbing.
 
-\section{The classical analogy}
+\section{Coupled oscillators as an absorber detector}
 
-To flesh out the observation of the abstract, 
-consider two coupled oscillators, one of them damped.
+In the previous section we considered a system that could be quantum,
+or classically wave-optic.  In this section, we show that the same
+qualitative behavior emerges in a purely classical system.
+
+Consider two coupled oscillators, one of them damped.  Such a system
+can be written, with a suitable choice of units, as
 \begin{equation}
 \begin{array}{l}
 \ddot x + x + \kappa y = 0 \\
-\ddot y + y + \kappa x + \gamma y = 0
+\ddot y + y + \kappa x + \gamma y = 0 \,.
+\label{eqn:coupled}
 \end{array}
 \end{equation}
-In the absence of damping ($\gamma=0$), it is easy to verify that
+Without the damping term ($\gamma=0$), it is easy to verify that
 \begin{equation}
 \begin{array}{l}
 2x = \cos(\sqrt{1+\kappa}\,t) + \cos(\sqrt{1-\kappa}\,t)  \\
@@ -198,24 +224,25 @@ In the absence of damping ($\gamma=0$), it is easy to verify that
 is a solution for the initial conditions
 \begin{equation}
 x(0) = 1, y(0) = \dot x(0) = \dot y(0) = 0 \,.
+\label{eqn:inic}
 \end{equation}
 If the coupling is weak ($\kappa\ll1$) the solution takes the form
 \begin{equation}
 \begin{array}{l}
-x = \cos(\frac12\kappa t) \cos t \\
-y = -\sin(\frac12\kappa t) \sin t \\
+x = \cos\left(\frac12\kappa t\right) \cos t \\
+y = -\sin\left(\frac12\kappa t\right) \sin t \\
 \end{array}
 \end{equation}
-and the amplitude sloshes from $x$ to $y$.  The weaker the coupling,
-the slower the transfer of energy between the oscillators.
+and the amplitude sloshes from $x$ to $y$.
 
-With damping, easiest to solve using Laplace transform. For the
-initial conditions $x(0)=1$ and $\dot x(0) = y(0) = \dot y(0) = 0$ we
-have
+Now putting back the damping, one can solve the equations in different
+ways.  A concise way is to use Laplace transforms.  Taking the Laplace
+transform of the equations (\ref{eqn:coupled}) with the same initial
+conditions (\ref{eqn:inic}) gives
 \begin{equation}
 \begin{array}{l}
 s^2 X - s + X + \kappa Y = 0 \\
-s^2 Y + Y + \kappa X + \gamma s Y = 0
+s^2 Y + Y + \kappa X + \gamma s Y = 0 \,.
 \end{array}
 \end{equation}
 For strong damping, we have to $O(1/\gamma)$
@@ -227,21 +254,23 @@ X = \frac s{s^2+1} + \frac{\kappa^2}\gamma \frac1{(s^2+1)^2} \\
 Y = -\frac\kappa\gamma \frac1{s^2+1}
 \end{array}
 \end{equation}
-Solution to $O(1/\gamma)$
+Taking the inverse Laplace transform and simplifying gives the
+solution to $O(1/\gamma)$
 \begin{equation}
 \begin{array}{l}
 \displaystyle
 x = \cos t + \frac{\kappa^2}{2\gamma} (\sin t - t\cos t) \\
 \displaystyle
-y = -\frac\kappa\gamma \sin t
+y = -\frac\kappa\gamma \sin t \,.
 \end{array}
 \end{equation}
-Amplitude damping rate $\propto\kappa^2/\gamma$.
+As we see, damping slows down the transfer to $y$.
 
-For mechanical oscillators, it may be counter-intuitive that more
-damping means less energy dissipation.  In the electrical case (an LC
-circuit coupled to an RLC circuit) it is obvious that increasing
-resistance reduces dissipation.
+In a mechanical system, it may seem odd that more damping means less
+energy dissipation.  But for electrical oscillotors (an LC circuit
+coupled to an RLC circuit) we are used to the idea that increasing
+resistance reduces dissipation.  Quantum interaction-free measurement
+can thus be seen simply as a quantized version of such a system.
 
 \bibliography{ifm.bib}
 
