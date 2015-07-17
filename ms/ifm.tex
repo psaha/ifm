@@ -1,9 +1,10 @@
-\documentclass[12pt,aps,prb,preprint]{revtex4}
+\documentclass[prb,preprint]{revtex4-1}
 \usepackage{pgf}
 
 \def\ket#1{|#1\rangle}
 \def\X{{\bf X}}
 \def\A{{\bf A}}
+
 
 \begin{document}
 
@@ -41,10 +42,10 @@ recent development\cite{2007qucosc.book}.  Entanglement is considered
 an intrinsically quantum phenonemon with no classical analog.
 
 There are also counter-intuitive quantum phenonema not involving
-entanglement.  Imagine a photon, initially in a ``vertical'' polarized
+entanglement.  Imagine a photon, initially in a `vertical' polarized
 state.  It is sent through a Faraday rotator, and then through a
 vertically polarizing sheet.  The former rotates the polarization
-plane towards ``horizontal'' by a small angle, say $\pi/(2N)$, where
+plane towards `horizontal' by a small angle, say $\pi/(2N)$, where
 $N$ is large.  The latter effectively measures the polarization state
 in the vertical/horizontal basis; if the result comes out horizontal,
 the photon is absorbed, otherwise it goes through in a vertical
@@ -68,7 +69,7 @@ to vertical.  Despite the fact that the polarizer is really just an
 absorber of horizontal photons, it can, within this experimental
 set-up, have the effect of rotating photons instead of absorbing them.
 This is the essence of interaction-free measurement; we can infer, or
-`measure' the presence or absence of the polarizer by measuring the
+`measure', the presence or absence of the polarizer by measuring the
 polarization.  If the polarization is rotated we know that the
 absorber cannot have been present -- and there is then of course no
 absorption -- while if the polarization is not changed then we know
@@ -87,7 +88,7 @@ to non-invasive medical imaging\cite{PhysRevA.80.040902} are
 particularly interesting.
 
 In this paper, we argue that interaction-free measurement need not be
-quantum at all.  Rather, the characteristics features of (a)~an
+quantum at all.  Rather, the characteristic features of (a)~an
 amplitude that cycles between two states, but (b)~an absorber can
 block this cycling, thus revealing its presence, but without actually
 absorbing any energy, can also appear in classical systems.  If one
@@ -110,12 +111,14 @@ interferometer, whose two arms replace the horizontal and vertical
 polarization states of the above thought-experiment.
 Figure~\ref{fig:mz} schematically shows the $N=1$ case; the general
 case would be a concatenation of such devices.  With an absorber, the
-amplitude sloshes between the 'lower' and 'upper' arms of the
+amplitude sloshes between the `lower' and `upper' arms of the
 interferometer; the absorber results in confining the amplitude to the
-lower arm.  Section~\ref{sec:oscill} briefly solves for the
-oscillators $x$ and $y$ from the previous paragraph.
+lower arm.  In section~\ref{sec:oscill} we validate the foregoing
+argument by briefly solving for the coupled oscillators $x$ and $y$
+from the previous paragraph.
 
-\section{An interferometer as an absorber detector}\label{sec:interf}
+
+\section{Interferometers as detectors of absorbers}\label{sec:interf}
 
 Let us express the interferometric setup of Figure~\ref{fig:mz} in the
 language of quantum two-state systems, borrowing the notation of
@@ -196,18 +199,19 @@ Figure~\ref{fig:qubits} illustrates the result for $N=1$.
 
 The contrasting results (\ref{eqn:no-absorber}) and
 (\ref{eqn:absorber}) express the characteristic feature of
-interaction-free measurement.  With no absorber the amplitude cycles
-between $\ket0$ and $\ket1$.  An absorber blocks the sloshing, without
-necessarily absorbing.
+interaction-free measurement.  With no absorber, the amplitude out of
+the $N$-th beam splitter sloshes between $\ket0$ and $\ket1$ as $N$
+increases.  An absorber blocks the sloshing, without necessarily
+absorbing.
 
-\section{Coupled oscillators as an absorber detector}\label{sec:oscill}
+\section{Coupled oscillators as detectors of absorbers}\label{sec:oscill}
 
 In the previous section we considered a system that could be quantum,
 or classically wave-optic.  In this section, we show that the same
 qualitative behavior emerges in a purely classical system.
 
-Consider two coupled oscillators, one of them damped.  Such a system
-can be written, with a suitable choice of units, as
+Consider two coupled oscillators, $x,y$, of which $y$ is damped.  Such
+a system can be written, with a suitable choice of units, as
 \begin{equation}
 \begin{array}{l}
 \ddot x + x + \kappa y = 0 \\
@@ -442,7 +446,6 @@ can thus be seen simply as a quantized version of such a system.
   Beam splitters and mirrors are unitary operators.  An absorber is a
   non-unitary operator, which zeros the $\ket0$ subspace.}
 \end{figure}
-
 
 
 \end{document}
